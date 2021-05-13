@@ -1,0 +1,178 @@
+*,
+*::after,
+*::before {
+  // margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 10px
+  font-family: 'Poppins', sans-serif; // 'Montserrat', 'Roboto';
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // min-height: 100vh;
+  background-color: #4e1638;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  color: #fff;
+  // padding: 10px;
+
+  .container {
+    // max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+
+    h1 {
+      font-size: clamp(3.5rem, 5vw, 6rem);
+      color: #fff;
+    }
+
+    .flex {
+      display: flex;
+
+      input,
+      button {
+        border: 1px solid #dedede;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        font-size: 1.4rem;
+        padding: 8px 10px;
+      }
+
+      input[type='text'] {
+        width: calc(20rem + 6vw);
+      }
+
+      .search-btn {
+        cursor: pointer;
+        border-left: 0;
+        border-radius: 0;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+
+      .random-btn {
+        cursor: pointer;
+        margin-left: 10px;
+        border-radius: 4px;
+      }
+    }
+
+    .result-heading {
+      width: 100vw;
+      // padding: 10px;
+
+      .meals {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 350px));
+
+        // this two commands place everything in center for grid layout
+        justify-content: center;
+        place-items: center;
+
+        grid-gap: 5px;
+        margin-top: 20px;
+
+        .meal {
+          cursor: pointer;
+          position: relative;
+
+          // combination with grid-template-columns values
+          width: clamp(260px, 22vw, 340px);
+          height: clamp(260px, 22vw, 340px);
+
+          margin-top: 20px;
+          text-align: center;
+          overflow: hidden;
+          object-fit: cover;
+
+          img {
+            width: 100%;
+            height: 100%;
+            border: 4px solid #fff;
+            border-radius: 2px;
+          }
+
+          .meal-info {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 0.3s ease-in-out;
+          }
+        }
+        .meal:hover .meal-info {
+          opacity: 1;
+        }
+      }
+      .single-meal {
+        margin: 30px auto;
+        width: 90%;
+        padding: calc(5px + 3vw);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+          border-bottom: 2px solid #fff;
+          font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+
+        img {
+          width: calc(250px + 15vw);
+          margin: 15px;
+          border: 4px solid #fff;
+          border-radius: 2px;
+        }
+
+        h3 {
+          font-size: clamp(2rem, 5vw, 3.5rem);
+          margin: 2px;
+        }
+
+        .ingredients {
+          display: inline-block;
+          border-bottom: 2px solid #fff;
+          margin-bottom: 30px;
+        }
+        .main {
+          width: 100%;
+
+          p {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            text-align: justify;
+          }
+
+          ul {
+            max-width: 400px;
+            list-style: decimal;
+            text-align: center;
+            margin: 0 auto;
+
+            li {
+              font-size: clamp(1.5rem, 5vw, 2.5rem);
+            }
+          }
+        }
+      }
+    }
+  }
+}
